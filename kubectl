@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+PATH="/opt/bitnami/kubectl/bin:$PATH"
+
+INIT_FILE=/opt/sinlead/kubectl/initialized
+
+if [ ! -f ${INIT_FILE} ]; then
+    init-kubectl
+    touch ${INIT_FILE}
+fi
+
+kubectl $@
+
+
