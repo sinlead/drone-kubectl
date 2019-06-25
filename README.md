@@ -19,7 +19,7 @@ steps:
         from_secret: k8s_cert
       kubernetes_token:
         from_secret: k8s_token
-    command:
+    commands:
       - kubectl create -f job_foo.yaml
       - kubectl wait --for=condition=complete -f job_foo.yaml
 
