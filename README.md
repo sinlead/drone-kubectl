@@ -29,6 +29,19 @@ steps:
 
 First, you need to have a service account with **proper privileges** and **service-account-token**.
 
+Create a service account
+
+```bash
+kubectl create serviceaccount deploy
+```
+
+Assign the RoleBinding to the service account
+
+```bash
+kubectl create clusterrolebinding drone-rolebinding --clusterrole=cluster-admin --group=system:serviceaccounts:deploy
+
+```
+
 You can find out your server URL which looks like `https://xxx.xxx.xxx.xxx` by the command:
 ```bash
 kubectl config view -o jsonpath='{range .clusters[*]}{.name}{"\t"}{.cluster.server}{"\n"}{end}'
