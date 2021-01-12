@@ -1,7 +1,5 @@
 FROM bitnami/kubectl:latest
 
-LABEL maintainer "Sinlead <opensource@sinlead.com>"
-
 COPY init-kubectl kubectl /opt/sinlead/kubectl/bin/
 
 USER root
