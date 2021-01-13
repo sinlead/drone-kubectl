@@ -1,0 +1,13 @@
+kind: pipeline
+type: kubernetes
+name: publish image
+steps:
+- name: publish
+  image: plugins/docker
+  settings:
+   repo: huhfoo/drone-kubectl
+   tags: latest
+   username:
+    from_secret: docker_username
+   password:
+    from_secret: docker_password
